@@ -1,0 +1,203 @@
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap");
+:root {
+  font-size: 10px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#root {
+  height: 100vh;
+  width: 100%;
+}
+
+.App {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.App .tabs {
+  z-index: 100;
+  bottom: 0;
+  width: 100%;
+  height: 100px;
+  background: #ea8685;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.App .tabs .active {
+  -webkit-filter: brightness(0) saturate(100%) invert(73%) sepia(10%) saturate(2054%) hue-rotate(327deg) brightness(102%) contrast(91%) drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.25));
+          filter: brightness(0) saturate(100%) invert(73%) sepia(10%) saturate(2054%) hue-rotate(327deg) brightness(102%) contrast(91%) drop-shadow(0px 1px 10px rgba(0, 0, 0, 0.25));
+}
+
+.App .tabs ul {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  list-style: none;
+}
+
+.App .tabs ul li {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 33.333%;
+}
+
+.Home {
+  width: 100%;
+  height: 100%;
+  background: #ea8685;
+}
+
+.screen {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  height: 100%;
+  width: 100%;
+  background: #fbfbfb;
+  overflow: hidden;
+}
+
+.Closet nav {
+  margin: 5em;
+}
+
+.Closet nav ul {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr;
+      grid-template-columns: 1fr;
+  -ms-grid-rows: (minmax(100px, 1fr))[auto-fit];
+      grid-template-rows: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 2.5em;
+  list-style: none;
+}
+
+.Garments {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Garments .grid {
+  padding: 5rem 5rem 0 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 35vw 35vw;
+      grid-template-columns: 35vw 35vw;
+  -ms-grid-rows: 20vw;
+      grid-template-rows: 20vw;
+  grid-auto-rows: 35vw;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.Garments .grid button {
+  width: calc(35vw * 2 + 2rem);
+  grid-column: span 2;
+  background: #ea8685;
+  border: none;
+  border-radius: 9999999px;
+  color: white;
+  -webkit-box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 8vw;
+  height: 20vw;
+}
+
+.Garments .grid .GarmentCard {
+  padding: 3vw;
+  background: white;
+  -webkit-box-shadow: 0px 1px 25px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 25px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 85% 15%;
+      grid-template-rows: 85% 15%;
+}
+
+.Garments .grid .GarmentCard img {
+  max-height: calc(85% - 1vh);
+  margin: auto;
+}
+
+.Garments .grid .GarmentCard .color-indicator {
+  height: 100%;
+  width: 60%;
+  margin: auto;
+  border: 1px solid #000;
+  border-radius: 9999999px;
+}
+
+.CardButton {
+  position: relative;
+  max-width: 100%;
+}
+
+.CardButton span {
+  color: #fff;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-family: "Oswald", sans-serif;
+  font-weight: 400;
+  font-size: 5vw;
+}
+
+.CardButton img {
+  width: 100%;
+  height: 100%;
+  border-radius: 15px;
+}
+/*# sourceMappingURL=App.css.map */
