@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap");
 :root {
   font-size: 10px;
 }
@@ -81,12 +81,7 @@
   width: 33.333%;
 }
 
-.Home {
-  width: 100%;
-  height: 100%;
-  background: #ea8685;
-}
-
+/*=======================Screens====================*/
 .screen {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -101,6 +96,45 @@
   width: 100%;
   background: #fbfbfb;
   overflow: hidden;
+}
+
+.Home {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+.Home h1 {
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  font-size: 8vw;
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  gap: 1rem;
+}
+
+.Home .grid {
+  padding: 5rem 5rem 0 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(100vw - 10rem);
+      grid-template-columns: calc(100vw - 10rem);
+  -ms-grid-rows: auto 35vw auto;
+      grid-template-rows: auto 35vw auto;
+  grid-auto-rows: 35vw;
+  gap: 2rem;
+  overflow-y: auto;
 }
 
 .Closet nav {
@@ -138,9 +172,13 @@
   overflow-y: auto;
 }
 
-.Garments .grid button {
-  width: calc(35vw * 2 + 2rem);
+.Garments .grid .Link {
   grid-column: span 2;
+}
+
+.Garments .grid .Link button {
+  height: 20vw;
+  width: calc(35vw * 2 + 2rem);
   background: #ea8685;
   border: none;
   border-radius: 9999999px;
@@ -150,7 +188,6 @@
   font-family: "Oswald", sans-serif;
   font-weight: 400;
   font-size: 8vw;
-  height: 20vw;
 }
 
 .Garments .grid .GarmentCard {
@@ -174,8 +211,279 @@
   height: 100%;
   width: 60%;
   margin: auto;
-  border: 1px solid #000;
+  border: 1px solid #808080;
   border-radius: 9999999px;
+}
+
+.Outfits {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.Outfits .grid {
+  padding: 5rem 5rem 0 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: calc(100vw - 10rem);
+      grid-template-columns: calc(100vw - 10rem);
+  grid-auto-rows: 35vw;
+  gap: 2rem;
+  overflow-y: auto;
+}
+
+.garment-photo-frame {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr;
+      grid-template-rows: auto 1fr;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  place-items: start;
+  row-gap: 5vh;
+  -webkit-column-gap: 1.4rem;
+          column-gap: 1.4rem;
+}
+
+.garment-photo-frame > * {
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  grid-row: span 1;
+  color: #fff;
+  font-size: 3.5vw;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+}
+
+.garment-photo-frame div {
+  grid-column: span 2;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  background: #e7e7e7;
+}
+
+.garment-photo-frame div svg {
+  width: 50%;
+  height: 50%;
+}
+
+.garment-photo-frame div img {
+  width: 100%;
+  height: 100%;
+}
+
+.garment-photo-frame button {
+  border: none;
+  background: #ea8685;
+  padding: 3rem;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.garment-photo-frame button svg {
+  width: 80%;
+  height: 80%;
+}
+
+.garment-description {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: 2fr 0.5fr 1.5fr;
+      grid-template-rows: 2fr 0.5fr 1.5fr;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  place-items: center;
+  row-gap: 5vh;
+}
+
+.garment-description > * {
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+  background: #e7e7e7;
+}
+
+.garment-description div {
+  grid-row: span 1;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.garment-description div svg {
+  width: 50%;
+  height: 50%;
+}
+
+.garment-description div img {
+  width: 100%;
+  height: 100%;
+}
+
+.garment-description input,
+.garment-description textarea {
+  background: #fff;
+  border: 2px solid #e7e7e7;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  height: calc(70% - 3rem);
+  width: calc(100% - 3rem);
+  resize: none;
+  padding: 2rem;
+  font-size: 3.5vw;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  -webkit-transition: border 0.1s;
+  transition: border 0.1s;
+}
+
+.garment-description input:focus,
+.garment-description textarea:focus {
+  outline: none;
+  border: 2px solid #ea8685;
+}
+
+.garment-tagging {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.garment-tagging h2 {
+  font-family: "Oswald", sans-serif;
+  font-size: 4.8vw;
+  font-weight: 300;
+}
+
+.garment-tagging form {
+  margin-top: 1.4rem;
+  background: #e7e7e7;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: calc(100% - 4rem);
+  padding: 2rem;
+  border-radius: 9999999px;
+}
+
+.garment-tagging form input {
+  background: transparent;
+  max-height: 100%;
+  width: 100%;
+  border: 2px solid #e7e7ee;
+  font-family: "Oswald", sans-serif;
+  font-size: 3.6vw;
+  font-weight: 200;
+}
+
+.garment-tagging form input:focus {
+  outline: none;
+}
+
+.garment-tagging form button {
+  border: none;
+  background: transparent;
+}
+
+.garment-tagging .tag-list {
+  margin-top: 5rem;
+  display: -ms-grid;
+  display: grid;
+  grid-auto-rows: 7rem;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  row-gap: 1.4rem;
+  overflow-y: auto;
+  width: 100%;
+}
+
+/*=======================Components====================*/
+.OutfitCard {
+  max-width: 100%;
+  padding: 5vw;
+  background: white;
+  -webkit-box-shadow: 0px 1px 25px 1px rgba(0, 0, 0, 0.1);
+          box-shadow: 0px 1px 25px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+}
+
+.OutfitCard img {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  grid-row: span 4;
+  height: 100%;
+  aspect-ratio: 1 / 1;
+  margin: auto;
+  background: #e4e4e4;
+  border-radius: 5%;
+}
+
+.OutfitCard .information {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  grid-row: span 4;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr;
+  -ms-grid-rows: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr 1fr;
+}
+
+.OutfitCard .information div.swatches {
+  -ms-grid-column: 1;
+  -ms-grid-column-span: 1;
+  grid-column: 1 / 2;
+  grid-row: span 3;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  gap: 0.5rem;
+  height: 100%;
+}
+
+.OutfitCard .information div.swatches div.outfit-swatch {
+  height: 90%;
+  aspect-ratio: 1 / 1;
+  border: 1px solid #808080;
+  border-radius: 15%;
+  background: #e4e4e4;
+}
+
+.OutfitCard .information div.icons {
+  -ms-grid-column: 2;
+  -ms-grid-column-span: 1;
+  grid-column: 2 / 3;
+  grid-row: span 3;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
 }
 
 .CardButton {
@@ -199,5 +507,56 @@
   width: 100%;
   height: 100%;
   border-radius: 15px;
+}
+
+.Camera {
+  display: -ms-grid;
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+}
+
+.Camera video,
+.Camera img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+}
+
+.Camera .take-photo-button {
+  position: relative;
+  bottom: 0;
+  height: 10rem;
+  width: 10rem;
+  border: none;
+  border-radius: 9999999px;
+}
+
+.TagCard {
+  background: #e7e7e7;
+  padding: 1.4rem;
+  max-width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  border-left: 20px solid #ea8685;
+  font-family: "Oswald", sans-serif;
+  font-size: 3.6vw;
+  font-weight: 200;
+}
+
+.TagCard svg {
+  -webkit-filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
+          filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
 }
 /*# sourceMappingURL=App.css.map */

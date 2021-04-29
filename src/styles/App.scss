@@ -2,7 +2,7 @@ $primary: #ea8685;
 $secondary: #f3a683;
 $screen-background: #fbfbfb;
 
-@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap");
 
 :root {
   font-size: 10px;
@@ -56,11 +56,7 @@ $screen-background: #fbfbfb;
   }
 }
 
-.Home {
-  width: 100%;
-  height: 100%;
-  background: $primary;
-}
+/*=======================Screens====================*/
 
 .screen {
   display: flex;
@@ -70,6 +66,33 @@ $screen-background: #fbfbfb;
   width: 100%;
   background: $screen-background;
   overflow: hidden;
+}
+
+.Home {
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+
+  h1 {
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    font-size: 8vw;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .grid {
+    padding: 5rem 5rem 0 5rem;
+    display: grid;
+    grid-template-columns: calc(100vw - 10rem);
+    grid-template-rows: auto 35vw auto;
+    grid-auto-rows: 35vw;
+    gap: 2rem;
+    overflow-y: auto;
+  }
 }
 
 .Closet {
@@ -95,18 +118,20 @@ $screen-background: #fbfbfb;
     grid-auto-rows: 35vw;
     gap: 2rem;
     overflow-y: auto;
-    button {
-      width: calc(35vw * 2 + 2rem);
+    .Link {
       grid-column: span 2;
-      background: $primary;
-      border: none;
-      border-radius: 9999999px;
-      color: white;
-      box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
-      font-family: "Oswald", sans-serif;
-      font-weight: 400;
-      font-size: 8vw;
-      height: 20vw;
+      button {
+        height: 20vw;
+        width: calc(35vw * 2 + 2rem);
+        background: $primary;
+        border: none;
+        border-radius: 9999999px;
+        color: white;
+        box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.25);
+        font-family: "Oswald", sans-serif;
+        font-weight: 400;
+        font-size: 8vw;
+      }
     }
     .GarmentCard {
       padding: 3vw;
@@ -124,9 +149,216 @@ $screen-background: #fbfbfb;
         height: 100%;
         width: 60%;
         margin: auto;
-        border: 1px solid #000;
+        border: 1px solid #808080;
         border-radius: 9999999px;
       }
+    }
+  }
+}
+
+.Outfits {
+  flex-direction: column;
+  .grid {
+    padding: 5rem 5rem 0 5rem;
+    display: grid;
+    grid-template-columns: calc(100vw - 10rem);
+    grid-auto-rows: 35vw;
+    gap: 2rem;
+    overflow-y: auto;
+  }
+}
+
+.garment-photo-frame {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: grid;
+  grid-template-rows: auto 1fr;
+  grid-template-columns: 1fr 1fr;
+  place-items: start;
+  row-gap: 5vh;
+  column-gap: 1.4rem;
+  & > * {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    grid-row: span 1;
+    color: #fff;
+    font-size: 3.5vw;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+  }
+  div {
+    grid-column: span 2;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    background: #e7e7e7;
+    svg {
+      width: 50%;
+      height: 50%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  button {
+    border: none;
+    background: $primary;
+    padding: 3rem;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    svg {
+      width: 80%;
+      height: 80%;
+    }
+  }
+}
+
+.garment-description {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: grid;
+  grid-template-rows: 2fr 0.5fr 1.5fr;
+  grid-template-columns: 100%;
+  place-items: center;
+  row-gap: 5vh;
+  & > * {
+    box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+    background: #e7e7e7;
+  }
+  div {
+    grid-row: span 1;
+    display: grid;
+    place-items: center;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+
+    svg {
+      width: 50%;
+      height: 50%;
+    }
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+  input,
+  textarea {
+    background: #fff;
+    border: 2px solid #e7e7e7;
+    box-shadow: none;
+    height: calc(70% - 3rem);
+    width: calc(100% - 3rem);
+    resize: none;
+    padding: 2rem;
+    font-size: 3.5vw;
+    font-family: "Oswald", sans-serif;
+    font-weight: 300;
+    transition: border 0.1s;
+    &:focus {
+      outline: none;
+      border: 2px solid $primary;
+    }
+  }
+}
+
+.garment-tagging {
+  height: calc(100% - 10rem);
+  width: calc(100% - 10rem);
+  padding: 5rem;
+  display: flex;
+  flex-direction: column;
+  h2 {    
+    font-family: "Oswald", sans-serif;
+    font-size: 4.8vw;
+    font-weight: 300;
+  }
+  form {
+    margin-top: 1.4rem;
+    background: #e7e7e7;
+    display: flex;
+    width: calc(100% - 4rem);
+    padding: 2rem;
+    border-radius: 9999999px;
+    input {
+      background: transparent;
+      max-height: 100%;
+      width: 100%;
+      border: 2px solid #e7e7ee;
+      font-family: "Oswald", sans-serif;
+      font-size: 3.6vw;
+      font-weight: 200;
+      &:focus {
+        outline: none;
+      }
+    }
+    button {
+      border: none;
+      background: transparent;
+    }
+  }
+  .tag-list {
+    margin-top: 5rem;
+    display: grid;
+    grid-auto-rows: 7rem;
+    grid-template-columns: 100%;
+    row-gap: 1.4rem;
+    overflow-y: auto;
+    width: 100%;
+  }
+}
+
+/*=======================Components====================*/
+
+.OutfitCard {
+  max-width: 100%;
+  padding: 5vw;
+  background: white;
+  box-shadow: 0px 1px 25px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  img {
+    grid-column: 1 / 2;
+    grid-row: span 4;
+    height: 100%;
+    aspect-ratio: 1 / 1;
+    margin: auto;
+    background: #e4e4e4;
+    border-radius: 5%;
+  }
+
+  .information {
+    grid-column: 2 / 3;
+    grid-row: span 4;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr;
+
+    div.swatches {
+      grid-column: 1 / 2;
+      grid-row: span 3;
+      display: grid;
+      place-items: center;
+      gap: 0.5rem;
+      height: 100%;
+      div.outfit-swatch {
+        height: 90%;
+        aspect-ratio: 1 / 1;
+        border: 1px solid #808080;
+        border-radius: 15%;
+        background: #e4e4e4;
+      }
+    }
+
+    div.icons {
+      grid-column: 2 / 3;
+      grid-row: span 3;
+      display: grid;
+      place-items: center;
     }
   }
 }
@@ -148,5 +380,42 @@ $screen-background: #fbfbfb;
     width: 100%;
     height: 100%;
     border-radius: 15px;
+  }
+}
+
+.Camera {
+  display: grid;
+  width: 100%;
+  height: 100%;
+  place-items: center;
+  video,
+  img {
+    width: 100%;
+    aspect-ratio: 1 / 1;
+  }
+  .take-photo-button {
+    position: relative;
+    bottom: 0;
+    height: 10rem;
+    width: 10rem;
+    border: none;
+    border-radius: 9999999px;
+  }
+}
+
+.TagCard {
+  background: #e7e7e7;
+  padding: 1.4rem;
+  max-width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: row;
+  border-left: 20px solid $primary;
+  font-family: "Oswald", sans-serif;
+  font-size: 3.6vw;
+  font-weight: 200;
+  svg {
+    filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
   }
 }
