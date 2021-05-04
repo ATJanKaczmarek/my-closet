@@ -1,4 +1,4 @@
-import { React, useState } from "react";
+import { React, useState, useRef } from "react";
 import Carousel from "re-carousel";
 import IndicatorDots from "../../components/IndicatorDots";
 import PictureIcon from "../../assets/icons/picture.svg";
@@ -7,100 +7,104 @@ import TagCard from "../../components/TagCard";
 import Camera from "../../components/Camera";
 import MagnifierIcon from "../../assets/icons/magnifier.svg";
 
-const defaultTags = [
+import DressIcon from "../../assets/icons/clothing/dress.svg";
+import PantsIcon from "../../assets/icons/clothing/pants.svg";
+import PulloverIcon from "../../assets/icons/clothing/pullover.svg";
+import ShirtIcon from "../../assets/icons/clothing/shirt.svg";
+import ShortsIcon from "../../assets/icons/clothing/shorts.svg";
+import SuitIcon from "../../assets/icons/clothing/suit.svg";
+import TshirtIcon from "../../assets/icons/clothing/tshirt.svg";
+import UnderwearIcon from "../../assets/icons/clothing/underwear.svg";
+import ZipperIcon from "../../assets/icons/clothing/zipper.svg";
+import PrintIcon from "../../assets/icons/clothing/print.svg";
+
+import CheckMarkIcon from "../../assets/icons/checkmark.svg";
+
+import { addGarmentCard } from "./Garments";
+
+import { Link } from "react-router-dom";
+
+let defaultTags = [
   {
     hexClr: "#EA8685",
-    icon: <div />,
+    icon: <TshirtIcon />,
     name: "T-Shirt",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Shirt",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Pullover",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Hoodie",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Zipper",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Pants",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Jeans",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Shorts",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
-    name: "Shoes",
-  },
-  {
-    hexClr: "#EA8685",
-    icon: <div />,
+    icon: <DressIcon />,
     name: "Dress",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Underwear",
+    icon: <PantsIcon />,
+    name: "Pants",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Accessory",
+    icon: <PulloverIcon />,
+    name: "Pullover",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Skirt",
+    icon: <ShirtIcon />,
+    name: "Shirt",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Socks",
+    icon: <ShortsIcon />,
+    name: "Shorts",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
+    icon: <SuitIcon />,
     name: "Suit",
   },
   {
     hexClr: "#EA8685",
-    icon: <div />,
-    name: "Jacket",
+    icon: <ZipperIcon />,
+    name: "Zipper",
+  },
+  {
+    hexClr: "#EA8685",
+    icon: <UnderwearIcon />,
+    name: "Underwear",
+  },
+  {
+    hexClr: "#EA8685",
+    icon: <SuitIcon />,
+    name: "Suit",
   },
   {
     hexClr: "#778beb",
-    icon: <div />,
+    icon: <PrintIcon />,
     name: "Print",
   },
-]
+];
 
 export default function GarmentCreation() {
   const [photo, setPhoto] = useState(undefined);
   function handlePhotoCallback(data) {
     setPhoto(data);
-    console.log(data);
   }
+
+  const [shownTags, setShownTags] = useState(defaultTags);
+  function handleSearch(event) {
+    let emptyArray = [];
+    if (event.target.value !== "") {
+      emptyArray = defaultTags.filter((data) => {
+        return data.name
+          .toLocaleLowerCase()
+          .includes(event.target.value.toLocaleLowerCase());
+      });
+      setShownTags(emptyArray);
+      return;
+    }
+    setShownTags(defaultTags);
+  }
+
+  const nameInput = useRef();
+  const descriptionInput = useRef();
 
   return photo === null ? (
     <Camera photo={(data) => handlePhotoCallback(data)} />
@@ -131,24 +135,52 @@ export default function GarmentCreation() {
             <img src={photo} alt="photoData" />
           )}
         </div>
-        <input type="text" placeholder="Name it..." />
-        <textarea rows="10" cols="40" placeholder="Describe it..."></textarea>
+        <input type="text" placeholder="Name it..." ref={nameInput} />
+        <textarea
+          rows="10"
+          cols="40"
+          placeholder="Describe it..."
+          ref={descriptionInput}
+        ></textarea>
       </div>
       <div className="screen garment-tagging">
         <h2>Tag it!</h2>
-        <form>
-          <input type="text" placeholder="Search.." name="search" />
-          <button type="submit">
-            <MagnifierIcon />
-          </button>
+        <form
+          onSubmit={(e) => {
+            e.preventDefault();
+          }}
+        >
+          <MagnifierIcon />
+          <input
+            type="text"
+            placeholder="Search the tags..."
+            name="search"
+            onChange={handleSearch}
+            autocomplete="off"
+          />
         </form>
         <div className="tag-list">
-          {
-            defaultTags.map(data => {
-              return <TagCard clr={data.hexClr} icon={data.icon} tagName={data.name}/>
-            })
-          }
+          {shownTags.map((data) => {
+            return (
+              <TagCard clr={data.hexClr} icon={data.icon} tagName={data.name} />
+            );
+          })}
         </div>
+        <Link to={`../garments`} className="Link">
+          <button
+            className="done-btn"
+            onClick={() =>
+              addGarmentCard({
+                name: nameInput.current.value,
+                description: descriptionInput.current.value,
+                img: photo,
+                tags: ["Pullover", "Hoodie"],
+              })
+            }
+          >
+            <CheckMarkIcon />
+          </button>
+        </Link>
       </div>
     </Carousel>
   );

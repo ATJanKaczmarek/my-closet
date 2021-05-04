@@ -1,71 +1,51 @@
-import React, { useState } from "react";
+import React from "react";
 import "./styles/App.css";
+import SignUp from "./screens/SignUp";
+import LogIn from "./screens/LogIn";
+import ForgotPassword from "./screens/ForgotPassword";
 import Home from "./screens/Home";
 import Closet from "./screens/Closet";
 import Profile from "./screens/Profile";
+import UpdateProfile from "./screens/UpdateProfile";
 import Garments from "./screens/secondary/Garments";
 import Outfits from "./screens/secondary/Outfits";
 import Calendar from "./screens/secondary/Calendar";
 import GarmentCreation from "./screens/secondary/GarmentCreation";
-import {
-  Route,
-  BrowserRouter as Router,
-  Switch,
-  Link,
-  useRouteMatch,
-} from "react-router-dom";
-import ClosetIcon from "./assets/icons/closet.svg";
-import HomeIcon from "./assets/icons/home.svg";
-import ProfileIcon from "./assets/icons/profile.svg";
+import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
+import { AuthProvider } from "./contexts/AuthContext";
+import PrivateRoute from "./components/PrivateRoute";
+import Navigation from "./components/Navigation";
 
 function App() {
-  const [activeTab, setActiveTab] = useState("Home");
   return (
-    <Router>
-      <div className="App">
-        <Switch>
-          <Route path="/closet" exact component={Closet} />
-          <Route path="/" exact component={Home} />
-          <Route path="/profile" component={Profile} />
-          <Route path="/closet/garments" exact component={Garments} />
-          <Route
-            path="/closet/garments/add-garment"
-            exact
-            component={GarmentCreation}
-          />
-          <Route path="/closet/outfits" exact component={Outfits} />
-          <Route path="/closet/calendar" exact component={Calendar} />
-        </Switch>
-        <nav className="tabs">
-          <ul>
-            <li>
-              <Link to="/closet">
-                <ClosetIcon
-                  className={activeTab === "Closet" ? "active" : ""}
-                  onClick={() => setActiveTab("Closet")}
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/">
-                <HomeIcon
-                  className={activeTab === "Home" ? "active" : ""}
-                  onClick={() => setActiveTab("Home")}
-                />
-              </Link>
-            </li>
-            <li>
-              <Link to="/profile">
-                <ProfileIcon
-                  className={activeTab === "Profile" ? "active" : ""}
-                  onClick={() => setActiveTab("Profile")}
-                />
-              </Link>
-            </li>
-          </ul>
-        </nav>
-      </div>
-    </Router>
+    <AuthProvider>
+      <Router>
+        <div className="App">
+          <Switch>
+            <PrivateRoute path="/closet" exact component={Closet} />
+            <PrivateRoute path="/" exact component={Home} />
+            <PrivateRoute path="/profile" component={Profile} />
+            <Route path="/forgot-password" component={ForgotPassword} />
+            <PrivateRoute path="/closet/garments" exact component={Garments} />
+            <PrivateRoute
+              path="/closet/garments/add-garment"
+              exact
+              component={GarmentCreation}
+            />
+            <PrivateRoute path="/closet/outfits" exact component={Outfits} />
+            <PrivateRoute path="/closet/calendar" exact component={Calendar} />
+            <Route path="/signup" exact component={SignUp} />
+            <Route path="/login" exact component={LogIn} />
+            <PrivateRoute
+              path="/update-profile"
+              exact
+              component={UpdateProfile}
+            />
+          </Switch>
+          <Navigation />
+        </div>
+      </Router>
+    </AuthProvider>
   );
 }
 

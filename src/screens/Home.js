@@ -9,7 +9,7 @@ export default class Home extends Component {
         <div class="grid">
           <h1>Planned Outfit</h1>
           <OutfitCard />
-          <h1><StarIcon class="star-icon"/> Favourite Outfits</h1>
+          <h1><StarIcon className="star-icon"/> Favourite Outfits</h1>
           <OutfitCard />
           <OutfitCard />
           <OutfitCard />

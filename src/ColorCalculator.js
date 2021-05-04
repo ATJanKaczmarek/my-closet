@@ -34,7 +34,7 @@ function hexToB(h) {
 
 //cut the hex into pieces
 function cutHex(h) {
-  if (h.charAt(1) == "x") {
+  if (h.charAt(1) === "x") {
     return h.substring(2, 8);
   } else {
     return h.substring(1, 7);

@@ -4,8 +4,8 @@ import Placeholder from "../assets/images/placeholder.png";
 import { averageColors } from "../ColorCalculator";
 
 export default function GarmentCard(props) {
-  const generatedImage = Placeholder;
-  const { data, loading, error } = usePalette(generatedImage);
+  const generatedImage = "https://via.placeholder.com/150";
+  const { data, loading, error } = usePalette(props.garmentImg);
   return (
     <div className="GarmentCard">
       <img

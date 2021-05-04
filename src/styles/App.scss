@@ -1,8 +1,10 @@
 $primary: #ea8685;
 $secondary: #f3a683;
+$accent-dark: #596275;
 $screen-background: #fbfbfb;
 
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap');
 
 :root {
   font-size: 10px;
@@ -109,8 +111,10 @@ $screen-background: #fbfbfb;
 }
 
 .Garments {
+  justify-content: start;
   flex-direction: column;
   .grid {
+    height: 100%;
     padding: 5rem 5rem 0 5rem;
     display: grid;
     grid-template-columns: 35vw 35vw;
@@ -269,8 +273,9 @@ $screen-background: #fbfbfb;
   width: calc(100% - 10rem);
   padding: 5rem;
   display: flex;
+  justify-content: start;
   flex-direction: column;
-  h2 {    
+  h2 {
     font-family: "Oswald", sans-serif;
     font-size: 4.8vw;
     font-weight: 300;
@@ -294,9 +299,9 @@ $screen-background: #fbfbfb;
         outline: none;
       }
     }
-    button {
-      border: none;
-      background: transparent;
+    svg {
+      height: 2.4rem;
+      margin-right: 1.4rem;
     }
   }
   .tag-list {
@@ -307,6 +312,233 @@ $screen-background: #fbfbfb;
     row-gap: 1.4rem;
     overflow-y: auto;
     width: 100%;
+  }
+
+  .Link {
+    width: 100%;
+    .done-btn {
+      margin-top: 3rem;
+      width: 100%;
+      height: 5rem;
+      display: grid;
+      place-items: center;
+      border: none;
+      border-radius: 9999999px;
+      background-color: $primary;
+      color: #fff;
+      font-size: 10vw;
+      font-family: "Oswald", sans-serif;
+      font-weight: 300;
+      box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+      svg {
+        filter: invert(100%) sepia(10%) saturate(7500%) hue-rotate(281deg)
+          brightness(115%) contrast(115%);
+      }
+    }
+  }
+}
+
+.LogIn {
+  display: grid;
+  grid-template-rows: auto auto auto;
+  justify-content: unset;
+  font-family: "Oswald", sans-serif;
+
+  h2 {
+    font-size: 3.6rem;
+    font-weight: 300;
+    color: $primary;
+    margin: 5rem auto;
+  }
+
+  .card {
+    width: auto;
+    height: auto;
+    margin: 0 5rem;
+    padding: 5rem 2rem 3rem;
+    background: #fbfbfb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    form {
+      width: 100%;
+      height: auto;
+      display: flex;
+      flex-direction: column;
+      label {
+        position: relative;
+        margin-left: 1rem;
+        transform: translateY(50%);
+        background-color: $screen-background;
+        width: max-content;
+        font-weight: 300;
+        font-size: 1.25rem;
+        color: $accent-dark;
+      }
+      input {
+        margin-bottom: 3rem;
+        height: 4rem;
+        padding: 0.5rem;
+        font-size: 1.2rem;
+        border-radius: 5px;
+        border: 1px solid $accent-dark;
+        background-color: $screen-background;
+        transition: border-color 0.25s;
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 300;
+        /*&:hover,*/
+        &:focus {
+          outline: none;
+          border-color: $primary;
+        }
+      }
+      .password-input {
+        margin-bottom: 2.5rem;
+      }
+      button {
+        height: 6.4rem;
+        border: none;
+        background: $primary;
+        border-radius: 5px;
+        color: #fff;
+        font-family: "Oswald", sans-serif;
+        font-size: 2.4rem;
+        font-weight: 400;
+        transition: background 0.25s;
+        margin-bottom: 2.5rem;
+        &:hover,
+        &:focus {
+          outline: none;
+          background: darken($primary, 10%);
+        }
+      }
+    }
+    .error-box {
+      background: #FF3838;
+      height: 6.4rem;
+      width: 100%;
+      color: #fff;
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
+    .forgot-link {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: $primary;
+    }
+  }
+  .create-account {
+    display: grid;
+    place-items: center;
+    p {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #000;
+      margin-bottom: 1.4rem;
+    }
+    a {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+      color: $primary;
+      margin-bottom: 1.4rem;
+    }
+  }
+}
+
+.Profile {
+  padding: 5rem 0;
+  display: grid;
+  grid-template-rows: auto 1fr 3fr;
+  grid-template-columns: 100%;
+  place-items: center;
+  gap: auto;
+  h2 {
+    font-family: 'Oswald', sans-serif;
+    font-weight: 300;
+    font-size: 3.6rem;
+    color: $primary;
+  }
+  .profile-header {
+    height: fit-content;
+    width: calc(100% - 10.4rem);
+    h4 {
+      font-family: 'Noto Sans JP', sans-serif;
+      font-weight: 300;
+      font-size: 1.8rem;
+    }
+    color: $accent-dark;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 1.6rem;
+    place-items: center;
+    img {
+      background: #C4C4C4;
+      height: 10rem;
+      width: 10rem;
+      border-radius: 9999999px;
+    }
+  }
+  .card {
+    width: calc(100% - 14rem);
+    height: auto;
+    margin: 0 5rem;
+    padding: 5rem 2rem 3rem;
+    background: #fbfbfb;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    h3 {
+      font-family: "Oswald", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 200;
+      margin-bottom: 2.5rem;
+    }
+    a, button {
+      display: grid;
+      place-items: center;
+      width: 100%;
+      height: 6.4rem;
+      border: none;
+      background: $primary;
+      border-radius: 5px;
+      color: #fff;
+      font-family: "Oswald", sans-serif;
+      font-size: 2.4rem;
+      font-weight: 400;
+      transition: background 0.25s;
+      margin-bottom: 2.5rem;
+      text-decoration: none;
+      &:hover,
+      &:focus {
+        outline: none;
+        background: darken($primary, 10%);
+      }
+    }
+    .error-box {
+      background: #FF3838;
+      height: 6.4rem;
+      width: 100%;
+      color: #fff;
+      border-radius: 5px;
+      display: grid;
+      place-items: center;
+      text-align: center;
+      font-family: "Oswald", sans-serif;
+      font-size: 1.8rem;
+      font-weight: 300;
+    }
   }
 }
 
@@ -415,7 +647,35 @@ $screen-background: #fbfbfb;
   font-family: "Oswald", sans-serif;
   font-size: 3.6vw;
   font-weight: 200;
+
   svg {
-    filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
+    &:not(.check-mark) {
+      aspect-ratio: 1 / 1;
+      height: 80%;
+      width: auto;
+    }
+  }
+
+  svg.check-mark {
+    filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg)
+      brightness(97%) contrast(89%);
+    opacity: 0;
+    // transition: opacity .1s linear;
+    &.active {
+      opacity: 1;
+      animation: pop-anim 0.1s ease-in-out;
+    }
+  }
+}
+
+@keyframes pop-anim {
+  0% {
+    transform: scale(1);
+  }
+  80% {
+    transform: scale(1.3);
+  }
+  100% {
+    transform: scale(1);
   }
 }

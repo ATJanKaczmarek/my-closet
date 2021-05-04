@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Oswald:wght@200;300;400;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;300;400&display=swap");
 :root {
   font-size: 10px;
 }
@@ -153,6 +154,9 @@
 }
 
 .Garments {
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -160,6 +164,7 @@
 }
 
 .Garments .grid {
+  height: 100%;
   padding: 5rem 5rem 0 5rem;
   display: -ms-grid;
   display: grid;
@@ -361,6 +366,9 @@
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: start;
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
@@ -398,9 +406,9 @@
   outline: none;
 }
 
-.garment-tagging form button {
-  border: none;
-  background: transparent;
+.garment-tagging form svg {
+  height: 2.4rem;
+  margin-right: 1.4rem;
 }
 
 .garment-tagging .tag-list {
@@ -413,6 +421,298 @@
   row-gap: 1.4rem;
   overflow-y: auto;
   width: 100%;
+}
+
+.garment-tagging .Link {
+  width: 100%;
+}
+
+.garment-tagging .Link .done-btn {
+  margin-top: 3rem;
+  width: 100%;
+  height: 5rem;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  border: none;
+  border-radius: 9999999px;
+  background-color: #ea8685;
+  color: #fff;
+  font-size: 10vw;
+  font-family: "Oswald", sans-serif;
+  font-weight: 300;
+  -webkit-box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 5px rgba(0, 0, 0, 0.25);
+}
+
+.garment-tagging .Link .done-btn svg {
+  -webkit-filter: invert(100%) sepia(10%) saturate(7500%) hue-rotate(281deg) brightness(115%) contrast(115%);
+          filter: invert(100%) sepia(10%) saturate(7500%) hue-rotate(281deg) brightness(115%) contrast(115%);
+}
+
+.LogIn {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto auto auto;
+      grid-template-rows: auto auto auto;
+  -webkit-box-pack: unset;
+      -ms-flex-pack: unset;
+          justify-content: unset;
+  font-family: "Oswald", sans-serif;
+}
+
+.LogIn h2 {
+  font-size: 3.6rem;
+  font-weight: 300;
+  color: #ea8685;
+  margin: 5rem auto;
+}
+
+.LogIn .card {
+  width: auto;
+  height: auto;
+  margin: 0 5rem;
+  padding: 5rem 2rem 3rem;
+  background: #fbfbfb;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.LogIn .card form {
+  width: 100%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.LogIn .card form label {
+  position: relative;
+  margin-left: 1rem;
+  -webkit-transform: translateY(50%);
+          transform: translateY(50%);
+  background-color: #fbfbfb;
+  width: -webkit-max-content;
+  width: -moz-max-content;
+  width: max-content;
+  font-weight: 300;
+  font-size: 1.25rem;
+  color: #596275;
+}
+
+.LogIn .card form input {
+  margin-bottom: 3rem;
+  height: 4rem;
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  border-radius: 5px;
+  border: 1px solid #596275;
+  background-color: #fbfbfb;
+  -webkit-transition: border-color 0.25s;
+  transition: border-color 0.25s;
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  /*&:hover,*/
+}
+
+.LogIn .card form input:focus {
+  outline: none;
+  border-color: #ea8685;
+}
+
+.LogIn .card form .password-input {
+  margin-bottom: 2.5rem;
+}
+
+.LogIn .card form button {
+  height: 6.4rem;
+  border: none;
+  background: #ea8685;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+  margin-bottom: 2.5rem;
+}
+
+.LogIn .card form button:hover, .LogIn .card form button:focus {
+  outline: none;
+  background: #e35b59;
+}
+
+.LogIn .card .error-box {
+  background: #FF3838;
+  height: 6.4rem;
+  width: 100%;
+  color: #fff;
+  border-radius: 5px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+}
+
+.LogIn .card .forgot-link {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #ea8685;
+}
+
+.LogIn .create-account {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+}
+
+.LogIn .create-account p {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 300;
+  color: #000;
+  margin-bottom: 1.4rem;
+}
+
+.LogIn .create-account a {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
+  color: #ea8685;
+  margin-bottom: 1.4rem;
+}
+
+.Profile {
+  padding: 5rem 0;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-rows: auto 1fr 3fr;
+      grid-template-rows: auto 1fr 3fr;
+  -ms-grid-columns: 100%;
+      grid-template-columns: 100%;
+  place-items: center;
+  gap: auto;
+}
+
+.Profile h2 {
+  font-family: 'Oswald', sans-serif;
+  font-weight: 300;
+  font-size: 3.6rem;
+  color: #ea8685;
+}
+
+.Profile .profile-header {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  width: calc(100% - 10.4rem);
+  color: #596275;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 2fr;
+      grid-template-columns: 1fr 2fr;
+  gap: 1.6rem;
+  place-items: center;
+}
+
+.Profile .profile-header h4 {
+  font-family: 'Noto Sans JP', sans-serif;
+  font-weight: 300;
+  font-size: 1.8rem;
+}
+
+.Profile .profile-header img {
+  background: #C4C4C4;
+  height: 10rem;
+  width: 10rem;
+  border-radius: 9999999px;
+}
+
+.Profile .card {
+  width: calc(100% - 14rem);
+  height: auto;
+  margin: 0 5rem;
+  padding: 5rem 2rem 3rem;
+  background: #fbfbfb;
+  -webkit-box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.Profile .card h3 {
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 200;
+  margin-bottom: 2.5rem;
+}
+
+.Profile .card a, .Profile .card button {
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  width: 100%;
+  height: 6.4rem;
+  border: none;
+  background: #ea8685;
+  border-radius: 5px;
+  color: #fff;
+  font-family: "Oswald", sans-serif;
+  font-size: 2.4rem;
+  font-weight: 400;
+  -webkit-transition: background 0.25s;
+  transition: background 0.25s;
+  margin-bottom: 2.5rem;
+  text-decoration: none;
+}
+
+.Profile .card a:hover, .Profile .card a:focus, .Profile .card button:hover, .Profile .card button:focus {
+  outline: none;
+  background: #e35b59;
+}
+
+.Profile .card .error-box {
+  background: #FF3838;
+  height: 6.4rem;
+  width: 100%;
+  color: #fff;
+  border-radius: 5px;
+  display: -ms-grid;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  font-family: "Oswald", sans-serif;
+  font-size: 1.8rem;
+  font-weight: 300;
 }
 
 /*=======================Components====================*/
@@ -555,8 +855,51 @@
   font-weight: 200;
 }
 
-.TagCard svg {
+.TagCard svg:not(.check-mark) {
+  aspect-ratio: 1 / 1;
+  height: 80%;
+  width: auto;
+}
+
+.TagCard svg.check-mark {
   -webkit-filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
           filter: invert(52%) sepia(96%) saturate(348%) hue-rotate(88deg) brightness(97%) contrast(89%);
+  opacity: 0;
+}
+
+.TagCard svg.check-mark.active {
+  opacity: 1;
+  -webkit-animation: pop-anim 0.1s ease-in-out;
+          animation: pop-anim 0.1s ease-in-out;
+}
+
+@-webkit-keyframes pop-anim {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+}
+
+@keyframes pop-anim {
+  0% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
+  80% {
+    -webkit-transform: scale(1.3);
+            transform: scale(1.3);
+  }
+  100% {
+    -webkit-transform: scale(1);
+            transform: scale(1);
+  }
 }
 /*# sourceMappingURL=App.css.map */
